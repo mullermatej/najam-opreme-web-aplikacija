@@ -1,32 +1,48 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+    <v-app>
+        <v-app-bar app>
+            <!-- Header title -->
+            <v-app-bar-title>
+                <v-row align="center">
+                    <v-btn
+                        v-for="item in items"
+                        :key="item.title"
+                        @click="navigateTo(item.route)"
+                        class="mr-4"
+                        text
+                        style="font-size: 15px"
+                    >
+                        {{ item.title }}
+                    </v-btn>
+                </v-row>
+            </v-app-bar-title>
+        </v-app-bar>
+
+        <v-main>
+            <router-view />
+        </v-main>
+    </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+    name: "App",
 
-nav {
-  padding: 30px;
+    data: () => ({
+        items: [
+            { title: "Home", icon: "mdi-home", route: "/" },
+            { title: "About Us", icon: "mdi-information", route: "/about" },
+            { title: "Shop", icon: "mdi-cart", route: "/shop" },
+            { title: "Blog", icon: "mdi-newspaper", route: "/blog" },
+            { title: "Contact Us", icon: "mdi-email", route: "/contact" },
+        ],
+    }),
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+    methods: {
+        navigateTo(route) {
+            // You can add navigation logic here to handle the route clicks
+            // For example, using Vue Router: this.$router.push(route)
+        },
+    },
+};
+</script>
