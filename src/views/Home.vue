@@ -1,7 +1,7 @@
 <template>
     <v-main>
-        <h1 class="text-center mt-4">IZBORNIK NAJMA OPREME</h1>
-        <v-container class="mt-4">
+        <h1 class="text-center mt-4"> IZBORNIK NAJMA OPREME</h1>
+        <v-container class="mt-4" :style="containerStyle">
             <!-- First Row of Buttons -->
             <v-row justify="center">
                 <v-btn

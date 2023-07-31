@@ -22,6 +22,12 @@ const routes = [
         component: () =>
             import(/* webpackChunkName: "about" */ "../views/Login.vue"),
     },
+    {
+        path: "/Pedaline",
+        name: "Pedaline",
+        component: () =>
+            import(/* webpackChunkName: "about" */ "../views/Pedaline.vue"),
+    },
 ];
 
 const router = new VueRouter({
